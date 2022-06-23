@@ -11,7 +11,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
-  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -27,25 +27,295 @@
       <!-- ################################################### -->
       <!-- ################################################### -->
       <section>
-        <h1>Reveal.js Presentations</h1>
-        <h2>with example slides that use JavaScript powered real-time animations</h2>
-        <p style="font-size:48px">Jay Newby</p>
-        <p>Assistant Professor</p>
-        <p>University of Alberta</p>
+        <h1 style = 'font-size:50px'>Controle de formações em voo de satélites utilizando forças aerodinâmicas e pressão de radiação solar</h1>
+		<div>
+		</br>
+		<leftSide style="width:65%;text-align:center;font-size:16pt">
+			<p> Caio Nahuel Sousa Fagonde </p>
+			<p> Willer Gomes dos Santos </p>
+			<p> Antônio Fernando Bertachini de Almeida Prado </p>
+        </leftSide>
+        <rightSide style="width:30%;text-align:center;font-size:16pt">
+          <p> UFABC </p>
+			<p> ITA </p>
+			<p> INPE </p>
+        </rightSide>
+		</div>
       </section>
       <!-- ################################################### -->
       <!-- ################################################### -->
       <section>
-        <h2>Info and source code available at https://revealjs.com/ <br>
-          (I am not a contributor)
-        </h2>
+	  <h2> Sumário </h2>
+	  </br>
+        <ul>
+		<li class="fragment">Introdução</li>
+		<li class="fragment">Objetivos</li>
+		<li class="fragment">Metodologia</li>
+		<li class="fragment">Resultados</li>
+		<li class="fragment">Conclusões</li>
+		<li class="fragment">Referências</li>
+		</ul>
       </section>
       <!-- ################################################### -->
       <!-- ################################################### -->
       <section>
-        <h2>Videos automatically start and stop when the slide is
-          active</h2>
+		<section data-auto-animate>
+			<h2>Introdução</h2>
+		</section>	
+		<section data-auto-animate>
+		<h2>Formação em voo de satélites</h2>
+		</br>
+		</br>
+		</br>
+		<leftSide style="width:65%;text-align:center;font-size:16pt">
+          <ul>
+		  <li class="fragment">Uma formação em voo de satélites é um tipo de <a style = "color:#ff4000">Sistema Espacial Distribuído</a>.</li>
+		  </br>
+		  <li class="fragment">Este tipo de estratégia operacional tem se tornado cada vez mais popular devido à popularização do uso de <a style = "color:#ff4000">pequenos satélites</a>, tais como <a style = "color:#ff4000">CubeSats</a></li>
+		  </br>
+		  <li class="fragment">Com esta abordagem, <a style = "color:#ff4000">vários satélites pequenos</a> podem realizar o trabalho que outrora necessitaria de um <a style = "color:#ff4000">grande satélite monolítico</a>.</li>
+		  </ul>
+        </leftSide>
+        <rightSide style="width:30%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
+          <img
+              style="margin:0px;padding:0px;"
+              height="250"
+              src="images/ff.png" class = "fragment">
+			  <p align = "center" style = 'font-size: 20px;color:black' class = "fragment"> Figura 1. Ilustração esquemática de uma formação em voo de satélites. Fonte: [1].</p>
+        </rightSide>
+		</section>
+		<section data-auto-animate>
+		<h2>Uso de forças ambientais</h2>
+		</br>
+		<div style="text-align:center;font-size:16pt">
+          <ul>
+		  <li class="fragment">Muitos satélites pequenos apresentam, porém, limitações <a style = "color:#0080FF">físicas</a> ou <a style = "color:#0080FF">operacionais</a> em suas <a style = "color:#ff4000">capacidades propulsivas</a> para a realização do controle ativo de suas trajetórias relativas.</li>
+		  </br>
+		  <li class="fragment">Com isto em mente, o desenvolvimento de métodos alternativos de controle de formações baseados no uso de <a style = "color:#0080FF">forças ambientais</a> promete <a style = "color:#ff4000">reduzir gastos propulsivos</a> associados à realização de <a style = "color:#0080FF">manobras de reconfiguração</a> e <a style = "color:#0080FF">manutenção da formação</a>.</li>
+		  
+		  </ul>
+		  </div>
+		  </section>
+		  <section>
+		  <video style = "height:50 px" data-autoplay src="images/AttitudeAnimation.mp4"></video>
+		  </br>
+		  <div>
+		  <ul>
+		  <li class="fragment">Neste contexto, o presente trabalho explora o uso de <a style = "color:#0080FF">forças aerodinâmicas</a> e <a style = "color:#ff4000">pressão de radiação solar</a> como método de controle de formações em voo.</li>
+		  </br>
+		  <li class="fragment">O ajuste destas forças naturais é realizado através de <a style = "color:#0080FF">manobras de atitude</a>, que modificam a orientação do satélite em relação à atmosfera incidente e à direção do Sol.</li>
+		  </ul>
+		  
+        </div>
+		<!-- Aqui incluir vídeo de uma manobra simples de atitude!
+		  <iframe
+          class="stretch"
+          data-src="images/underactuated_cubesat.gif"
+          scrolling="no"></iframe> -->
+        
+        
+		</section>
       </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+		<section>
+			<h2>Objetivos</h2>
+		</section>	
+		<section>
+			<h2>Objetivo Geral</h2>
+			</br>
+			</br>
+			<ul>
+			<li class="fragment fade-in">
+				<span class="fragment highlight-red">
+				Analisar o uso de forças aerodinâmicas e pressão de radiação solar como método de controle de formações em voo de satélites
+				</span>
+			</li>
+			</ul>
+		</section>	
+		<section>
+			<h2>Objetivos Específicos</h2>
+			<ul>
+			<li style="font-size:24px" class="fragment highlight-current-red">
+				Explorar a literatura existente sobre o uso de forças aerodinâmicas e pressão de radiação solar como método de controle de formações em voo.
+			</li>
+			</br>
+			<li style="font-size:24px" class="fragment highlight-current-red">
+				Desenvolver um código para simulação da dinâmica de atitude e do movimento relativo de uma formação em voo, incluindo a perturbação causada pelo achatamento terrestre.
+			</li>
+			</br>
+			<li style="font-size:24px" class="fragment highlight-current-red">
+				Implementar um sistema de controle baseado no Regulador Linear Quadrático para controle translacional.
+			</li>
+			</br>
+			<li style="font-size:24px" class="fragment highlight-current-red">
+				Desenvolver um sistema de controle Lyapunov para a atitude dos satélites.
+			</li>
+			</br>
+			<li style="font-size:24px" class="fragment highlight-current-red">
+				Desenvolver um método de otimização sem restrições para obter a trajetória de atitude que minimiza o erro entre as acelerações diferenciais e a aceleração de controle comandada.
+			</li>
+			</br>
+			<li style="font-size:24px" class="fragment highlight-current-red">
+				Simular manobras de reconfiguração de formação.
+			</li>
+			</ul>
+		</section>	
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+		<section>
+			<h2>Metodologia</h2>
+		</section>	
+		<section data-auto-animate>
+		<h2>Fundamentos de astrodinâmica</h2>
+		</br>
+		<ul>
+		<li class="fragment">O princípio fundamental que rege a dinâmica de satélites artificiais é a <a style = "color:#ff4000"> Lei da Gravitação Universal de Newton</a>:</li>
+		<p class="fragment"><a style="color:#0080FF">\[\boldsymbol{F}_G = -\dfrac{\mathcal{G}m_1m_2}{|\boldsymbol{r}|^3}\boldsymbol{r}\]</a></p>
+		<li class="fragment">Com esta expressão pode-se obter as equações de movimento de um corpo sob a atração gravitacional de um segundo corpo massivo, como a Terra.</li>
+		</ul>
+		</section>
+		<section data-auto-animate>
+		<textBox touch-action="none">
+            <boxTitle>
+              <h3>Aceleração kepleriana</h3>
+            </boxTitle>
+            <p >
+              \[\begin{align}\boldsymbol{a}_{kep} &= -\dfrac{\mu}{|\boldsymbol{r}|^3}\boldsymbol{r}\\[1em] \mu &= \mathcal{G}M_{Terra}\end{align}\]
+            </p>
+          </textBox>
+		</section>
+		<section data-auto-animate>
+		<h3>Órbitas keplerianas</h3>
+		</br>
+		<ul>
+		<li class = "fragment">A trajetória de um corpo que se move sob o efeito apenas da aceleração kepleriana será uma <a style = "color:#0080FF">seção cônica</a>.</li>
+		<li class = "fragment">Estas seriam <a style = "color:#0080FF">"órbitas ideais"</a>, invariantes em relação a um sistema de referência inercial.
+		</section>
+		<section>
+		<h2>Abordagens de coordenação</h2>
+		</br>
+		</br>
+		</br>
+		</br>
+		<leftSide style="width:65%;text-align:center;font-size:16pt">
+          <ul>
+		  <li class="fragment"><a style = "color:#ff4000">Rastreamento Orbital</a> - Sistema Inercial (ECI).</li>
+		  </br>
+		  <li class="fragment"><a style = "color:#ff4000">Líder-Seguidor</a> - Sistema Girante (LVLH).</li>
+		  </br>
+		  <li class="fragment"><a style = "color:#ff4000">Estrutura Virtual</a> - Sistema Girante (LVLH).</li>
+		  </ul>
+        </leftSide>
+        <rightSide style="width:34%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
+          <img
+              style="margin:-20px;padding:0px;"
+              height="300"
+			  width = "300"
+              src="images/eci_lvlh.svg" class = "fragment">
+			  <p align = "center" style = 'font-size: 20px;color:black' class = "fragment"> Figura 2. Sistemas de referência ECI e LVLH. Fonte: Próprios autores.</p>
+        </rightSide>
+		</br>
+		</br>
+		</br>
+		</br>
+		</br>
+		</br>
+		</br>
+		<leftSide style="width:65%;text-align:center;font-size:16pt">
+          <ul>
+		  <li class="fragment"><a style = "color:black">Para as abordagens do tipo <a style = "color:#0080FF">Líder-Seguidor</a> e <a style = "color:#0080FF">Estrutura Virtual</a>, deve-se definir um <a style = "color:#ff4000">modelo de dinâmica relativa</a>.</li>
+		  </ul>
+        </leftSide>
+		</section>
+		<section>
+		<h2>Modelagem de forças</h2>
+		<ul>
+		<li class="fragment">O princípio fundamental que rege a dinâmica de satélites artificiais é a <a style = "color:#ff4000"> Lei da Gravitação Universal de Newton</a></li>
+		<p class="fragment"><a style="color:#0080FF">\[\boldsymbol{F}_G = -\dfrac{\mathcal{G}m_1m_2}{|\boldsymbol{r}|^3}\boldsymbol{r}\]</a></p>
+		<li class="fragment">Com esta expressão pode-se obter as equações de movimento de um corpo sob a atração gravitacional de um segundo corpo massivo, como a Terra.</li>
+		</ul>
+		</section>
+        <section>
+		<p> A <a style = "color:#ff4000"> força aerodinâmica </a> é uma força causada pela interação entre o satélite e as partículas da atmosfera incidente. Ela depende da <a style ="color:#0080FF"> área superficial</a> (<a style ="color:#0080FF">S</a>),
+		<a style ="color:#0080FF"> densidade atmosférica</a> (<a style ="color:#0080FF">$\rho$</a>), a magnitude da <a style ="color:#0080FF">velocidade relativa</a> (<a style ="color:#0080FF">V</a>),
+		coeficientes intrínsecos de <a style ="color:#0080FF"> interação gás-superfície</a> (<a style ="color:#0080FF">$\epsilon$</a> e <a style ="color:#0080FF">$\eta$</a>),
+		assim como a direção normal à superfície e a direção da velocidade relativa à atmosfera incidente (<a style ="color:#0080FF">$\hat{n}$</a> e <a style ="color:#0080FF">$\hat{e}_v$</a>, respectivamente).</p>
+		</br>
+          <textBox touch-action="none">
+            <boxTitle>
+              <h3>Aceleração aerodinâmica</h3>
+            </boxTitle>
+            <p >
+              \[\begin{split}
+				\boldsymbol{a}_{aero} = &-\dfrac{1}{m}\rho V^2 S [(1-\epsilon)(\hat{e}_v \cdot \hat{n})\hat{e}_v \\&+ 2\epsilon(\hat{e}_v \cdot \hat{n})^2\hat{n} + \eta(1-\epsilon)(\hat{e}_v \cdot \hat{n})\hat{n} ]
+				\end{split}\]
+            </p>
+          </textBox>
+        </section>
+        <section>
+			<p> Já a <a style = "color:#ff4000"> pressão de radiação solar </a> é uma força que surge devido à incidência de feixes de fótons provenientes do Sol. Esta força depende da <a style ="color:#0080FF"> área superficial</a> (<a style ="color:#0080FF">S</a>),
+		<a style ="color:#0080FF"> pressão de radiação solar</a> (<a style ="color:#0080FF"> $p_{srp}$</a>), coeficientes de <a style ="color:#0080FF"> reflexão especular</a> (<a style ="color:#0080FF"> $r_s$</a>) e <a style ="color:#0080FF"> reflexão difusa</a> (<a style ="color:#0080FF"> $r_d$</a>),
+		assim como a direção normal à superfície e a direção da velocidade relativa à atmosfera incidente.</p>
+		</br>
+          <textBox>
+            <boxTitle>
+              <h3>Pressão de radiação solar</h3>
+            </boxTitle>
+            <p>
+              \[\begin{split}
+				\boldsymbol{a}_{srp} = &-p_{srp}\dfrac{S}{m}\nu\cos{\gamma}\bigg[(1-r_s)\hat{e}_s \\&+ 2 \left(r_s\cos{\gamma} + \frac{1}{3}r_d \right)\hat{n}\bigg]
+				\end{split}\]
+            </p>
+          </textBox>
+        </section>
+		<section>
+          <textBox style="background:#FFF">
+            <boxTitle>
+              <h3 style="font-size:26pt">Reflexão especular e difusa</h3>
+            </boxTitle>
+            <img
+              style="margin:0px;padding:0px;"
+              height="250"
+              src="images/scattering.png">
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Reflexão especular e difusa de um feixe incidente. Fonte: Próprios autores.</p>
+          </textBox>
+        </section>
+		<section>
+		<h2>Dinâmica de Atitude</h2>
+		<ul>
+		<li class="fragment">O princípio fundamental que rege a dinâmica de satélites artificiais é a <a style = "color:#ff4000"> Lei da Gravitação Universal de Newton</a></li>
+		<p class="fragment"><a style="color:#0080FF">\[\boldsymbol{F}_G = -\dfrac{\mathcal{G}m_1m_2}{|\boldsymbol{r}|^3}\boldsymbol{r}\]</a></p>
+		<li class="fragment">Com esta expressão pode-se obter as equações de movimento de um corpo sob a atração gravitacional de um segundo corpo massivo, como a Terra.</li>
+		</ul>
+		</section>
+          
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+		<section>
+			<h2>Resultados</h2>
+		</section>	
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+		<section>
+			<h2>Conclusões</h2>
+		</section>	
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+		<section>
+			<h2>Referências</h2>
+		</section>	
+      </section>
+	  
       <!-- ################################################### -->
       <!-- ################################################### -->
       <section data-background="#000" data-state="dark">
@@ -180,6 +450,7 @@
         Reveal.initialize({
           // width: 960,
           // height:700,
+		  autoPlayMedia: true,
           controls: true,
           progress: true,
           history: true,
