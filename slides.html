@@ -239,7 +239,7 @@
               <h3>Acelerações perturbativas</h3>
             </boxTitle>
             <p class="fragment" data-fragment-index="3">
-              \[\begin{align}\boldsymbol{a} &= \overbrace{-\dfrac{\mu}{|\boldsymbol{r}|^3}\boldsymbol{r}}^{\boldsymbol{a}_{kep}} + \underbrace{\sum \boldsymbol{a}_{pert}}_{\text{Perturbações}}\end{align}\]
+              \[\begin{align}\boldsymbol{a} &= \overbrace{-\dfrac{\mu}{|\boldsymbol{r}|^3}\boldsymbol{r}}^{\boldsymbol{a}_{kep}} + \underbrace{\sum \boldsymbol{a}_{pert}}_{\text{pert.}}\end{align}\]
             </p>
           </textBox>
         </rightSide>
@@ -277,20 +277,52 @@
 		</br>
 		<leftSide style="width:30%;text-align:center;font-size:18pt">
 		</br>
-		</br>
-		</br>
           <ul>
-		  <li class="fragment" data-fragment-index="1"><a style = "color:#ff4000">Rastreamento Orbital</a> - Sistema Inercial (ECI).</li>
+		  <li class="fragment" data-fragment-index="1">O <a style = "color:#ff4000">modelo de dinâmica relativa</a> irá determinar como o estado relativo de um satélite seguidor evolui com o tempo.</li>
 		  </br>
-		  <li class="fragment" data-fragment-index="2"><a style = "color:#ff4000">Líder-Seguidor</a> - Sistema Girante (LVLH).</li>
-		  </br>
-		  <li class="fragment" data-fragment-index="3"><a style = "color:#ff4000">Estrutura Virtual</a> - Sistema Girante (LVLH).</li>
-		  </br>
-		  <li class="fragment" data-fragment-index="5"><a style = "color:black">Para as abordagens do tipo <a style = "color:#0080FF">Líder-Seguidor</a> e <a style = "color:#0080FF">Estrutura Virtual</a>, deve-se definir um <a style = "color:#ff4000">modelo de dinâmica relativa</a>.</li>
+		  <li class="fragment" data-fragment-index="2">Para esta análise, escolheu-se um <a style = "color:#ff4000">modelo não-linear</a>, que incorpora a <a style = "color:#ff4000">perturbação do $J_2$</a> [5].</li>
+
 		  </ul>
         </leftSide>
         <rightSide style="width:70%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
 			<video style = "height:50 px" data-autoplay src="images/LVLHAnimation.mp4"></video>        
+			</rightSide>
+		</section>
+		<section>
+		<leftSide style="width:60%;text-align:center;font-size:18pt">
+		<textBox touch-action="none">
+            <boxTitle>
+              <h3>Modelo de dinâmica relativa</h3>
+            </boxTitle>
+            <p >
+              \begin{equation}
+\begin{split}
+    \label{xdd}\ddot{x}_j &= 2\dot{y}_j\omega_z - x_j(n_j^2 - \omega_z^2) + y_j\alpha_z - z_j\omega_x\omega_z \\&- (\zeta_j - \zeta)\sin{i_0}\sin{\theta} - r\bigg(n_j^2-n^2\bigg) + a_{jx}
+\end{split}
+\end{equation}
+</br>
+\begin{equation}
+\begin{split}
+    \ddot{y}_j &= -2\dot{x}_j\omega_z + 2\dot{z}_j\omega_x - x_j\alpha_z - y_j(n_j^2 - \omega_z^2 - \omega_x^2) \\&+ z_j\alpha_x - (\zeta_j - \zeta)\sin{i_0}\cos{\theta} + a_{jy}
+\end{split}
+\end{equation}
+</br>
+\begin{equation}
+\begin{split}
+    \label{zdd}\ddot{z}_j &= -2\dot{y}_j\omega_x - x_j\omega_x\omega_z - y_j\alpha_x - z_j(n_j^2 - \omega_x^2) \\&- (\zeta_j - \zeta)\cos{i_0} + a_{jz}\\[1em]
+\end{split}
+\end{equation}
+            </p>
+          </textBox>
+		  </leftSide>
+		  <rightSide style="width:30%;font-size:18pt" align="center">
+		  </br>
+		  </br>
+			<ul>
+			<li class="fragment"><a style="color:#ff4000">$\xi_i$</a>, <a style="color:#ff4000">$n_i$</a>: Fatores não-lineares influenciados pela perturbação do $J_2$.</li>
+			</br>
+			<li class="fragment"><a style="color:#ff4000">$\omega_i$</a>, <a style="color:#ff4000">$\alpha_i$</a>: Velocidades e acelerações angulares associados à <a style="color:#0080FF">rotação do referencial LVLH</a>.</li>
+			</ul>
 			</rightSide>
 		</section>
 		<section>
@@ -357,13 +389,133 @@
         </section>
 		
 		<section>
-		<h2>Dinâmica de Atitude</h2>
-		<ul>
-		<li class="fragment">O princípio fundamental que rege a dinâmica de satélites artificiais é a <a style = "color:#ff4000"> Lei da Gravitação Universal de Newton</a></li>
-		<p class="fragment"><a style="color:#0080FF">\[\boldsymbol{F}_G = -\dfrac{\mathcal{G}m_1m_2}{|\boldsymbol{r}|^3}\boldsymbol{r}\]</a></p>
-		<li class="fragment">Com esta expressão pode-se obter as equações de movimento de um corpo sob a atração gravitacional de um segundo corpo massivo, como a Terra.</li>
-		</ul>
+		<leftSide style="width:50%;text-align:center;font-size:18pt">
+		
+              <h3>Cinemática de Atitude</h3>
+			  </br>
+			  </br>
+            <p class="fragment" data-fragment-index="1">
+              \begin{equation}
+				\dot{\boldsymbol{q}} = \dfrac{1}{2}B(\boldsymbol{q})\boldsymbol{\omega}
+			\end{equation}
+            </p>
+			</br>
+			<p class="fragment" data-fragment-index="2">
+			\begin{equation}
+              B(\boldsymbol{q}) = \begin{bmatrix} - q_1 & -q_2 & -q_3\\[1em]
+			q_0 & -q_3 & q_2\\[1em]
+			q_3 & q_0 & -q_1\\[1em]
+			-q_2 & q_1 & q_0\end{bmatrix}.
+			\end{equation}
+            </p>
+		  </leftSide>
+		  <rightSide style="width:50%;font-size:18pt" align="center">
+		  <h3>Dinâmica de Atitude</h3>
+		  </br>
+			  </br style:"display: block;margin: 20px 0;">
+            <p class="fragment" data-fragment-index="1">
+              \begin{equation}\label{EulerRotMotion}
+				J\dot{\boldsymbol{\omega}} = -[\tilde{\boldsymbol{\omega}}]J\boldsymbol{\omega} + \boldsymbol{u} + \boldsymbol{L}
+			\end{equation}
+            </p>
+			</br>
+			</br>
+			<p class="fragment" data-fragment-index="2">
+				\begin{equation}
+				[\tilde{\boldsymbol{\omega}}] = \begin{bmatrix}0 & -\omega_3 & \omega_2\\[1em]
+				\omega_3 & 0 & -\omega_1\\[1em]
+				-\omega_2 & \omega_1 & 0\end{bmatrix}.
+				\end{equation}
+            </p>
+			</rightSide>
 		</section>
+		<section>
+		<h2>Sistemas de controle para o movimento translacional e para a atitude</h2>
+		</br>
+		</br>
+		<ul>
+			<li style="font-size:18pt" class="fragment" data-fragment-index="1">Um <a style ="color:#0080FF">Regulador Linear Quadrático</a> será implementado para obter os valores de aceleração de controle comandada para o movimento translacional.</li>
+			</br>
+			<li style ="font-size:18pt" class="fragment" data-fragment-index="2">Para o controle de atitude, uma  <a style ="color:#0080FF">Função de Controle Lyapunov</a> será implementada, de forma a fazer com que os satélites sigam a trajetória de atitude desejada.</li>
+		</ul>
+        </section>
+		
+		<section>
+		<h2>Regulador Linear Quadrático</h2>
+		</br>
+		</br>
+		<ul>
+			<li style="font-size:18pt" class="fragment" data-fragment-index="1">O Regulador Linear Quadrático (LQR) é um tipo de <a style ="color:#0080FF">sistema de controle ótimo para sistemas lineares</a>.</li>
+			</br>
+			<li style ="font-size:18pt" class="fragment" data-fragment-index="2">Devido à natureza não-linear da planta escolhida, o controle LQR será desenvolvido utilizando as <a style ="color:#0080FF">Equações de Clohessy-Wiltshire</a> como uma aproximação linear.</li>
+		</ul>
+        </section>
+		<section>
+		<textBox >
+            <boxTitle>
+              <h3>Equações de Clohessy-Wiltshire</h3>
+            </boxTitle>
+			<p style="font-size:18pt">
+			\begin{align}
+    \label{clohessy1} 
+    \ddot{x} &= 2n\dot{y} + 3n^2x + u_x
+    \\[1em]
+    \ddot{y} &= -2n\dot{x} + u_y
+    \label{clohessy2}\\[1em]
+    \ddot{z} &= -n^2z + u_z
+    \label{clohessy3}
+\end{align}
+			</p>
+			</textbox>
+		<leftSide style="width:50%;text-align:center;font-size:18pt">
+		<textBox class="fragment" data-fragment-index="1">
+            <boxTitle class="fragment" data-fragment-index="1">
+              <h3>Modelagem em espaço de estados</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="1">
+			\begin{equation}\label{ss}
+    \dot{\boldsymbol{x}} = A\boldsymbol{x} + B\boldsymbol{u}
+\end{equation}
+			</p>
+			</textbox>
+			</br>
+			</br>
+			<textBox class="fragment" data-fragment-index="2">
+            <boxTitle class="fragment" data-fragment-index="2">
+              <h3>Índice de custo quadrático</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="2">
+			\begin{equation}\label{LQRJ}
+    J = \dfrac{1}{2}\int_0^{t_f} \bigg(\boldsymbol{x}^TQ\boldsymbol{x} + \boldsymbol{u}^TR\boldsymbol{u}\bigg)dt
+\end{equation}
+			</p>
+			</textbox>
+			</leftSide>
+			<rightSide style="width:50%;text-align:center;font-size:18pt">
+			<textBox class="fragment" data-fragment-index="3">
+            <boxTitle class="fragment" data-fragment-index="3">
+              <h3>Equação Algébrica de Ricatti</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="3">
+			\begin{equation}
+			PA + A^TP - PBR^{-1}B^TP + Q = 0
+			\end{equation}
+			</p>
+			</textbox>
+			</br>
+			</br>
+			<textBox class="fragment" data-fragment-index="4">
+            <boxTitle class="fragment" data-fragment-index="4">
+              <h3>Aceleração de controle</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="4">
+			\begin{equation}\label{controlAction}
+				\boldsymbol{u} = - K\boldsymbol{e}
+			\end{equation}
+			</p>
+			</textbox>
+			</rightSide>
+        </section>
           
       </section>
 	  <!-- ################################################### -->
