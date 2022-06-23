@@ -158,7 +158,7 @@
 			</li>
 			</br>
 			<li style="font-size:24px" class="fragment highlight-current-red">
-				Simular manobras de reconfiguração de formação.
+				Simular manobras de reconfiguração de formação utilizando forças ambientais.
 			</li>
 			</ul>
 		</section>	
@@ -190,57 +190,138 @@
 		</section>
 		<section data-auto-animate>
 		<h3>Órbitas keplerianas</h3>
+		
+		<leftSide style="width:40%;text-align:center;font-size:18pt">
 		</br>
-		<ul>
-		<li class = "fragment">A trajetória de um corpo que se move sob o efeito apenas da aceleração kepleriana será uma <a style = "color:#0080FF">seção cônica</a>.</li>
-		<li class = "fragment">Estas seriam <a style = "color:#0080FF">"órbitas ideais"</a>, invariantes em relação a um sistema de referência inercial.
+          <ul>
+		  </br>
+		  </br>
+		  </br>
+		<li class = "fragment" data-fragment-index="1">A trajetória de um corpo que se move sob o efeito apenas da aceleração kepleriana será uma <a style = "color:#0080FF">seção cônica</a>.</li>
+		</br>
+		</br>
+		<li class = "fragment" data-fragment-index="2">Estas seriam <a style = "color:#0080FF">"órbitas ideais"</a>, invariantes em relação a um sistema de referência inercial [2].
+		
+		  </ul>
+        </leftSide>
+        <rightSide style="width:60%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
+          <img
+              style="margin:0px;padding:0px;"
+              max-height="600"
+			  align="center"
+			  width = "auto"
+              src="images/FForbit.png" class = "fragment" data-fragment-index="3">
+			  <p align = "center" style = 'font-size: 20px;color:black' class = "fragment" data-fragment-index="3"> Figura 2. Exemplo de órbitas keplerianas. Fonte: Próprios autores.</p>
+        </rightSide>
+		
+		</section>
+		<section>
+		<h2>Forças perturbadoras</h2>
+		</br>
+		<leftSide style="width:50%;text-align:center;font-size:18pt">
+		</br>
+		</br>
+          <ul>
+		  <li class="fragment" data-fragment-index="1">Em uma situação real, porém, outras forças irão influenciar a dinâmica de um corpo orbitante.</li>
+		  </br>
+		  <li class="fragment" data-fragment-index="2">Estas são classificadas como <a style = "color:#ff4000">perturbações orbitais</a>, pois fazem com que o sistema se afaste do ideal kepleriano.</li>
+		  </br>
+		  <li class = "fragment" data-fragment-index="4">Exemplos de perturbações orbitais são a <a style = "color:#0080FF">força aerodinâmica</a>, e a <a style = "color:#0080FF">pressão de radiação solar</a>[2].
+		  </ul>
+        </leftSide>
+        <rightSide style="width:50%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
+		</br>
+		   </br>
+		   </br>
+           <textBox touch-action="none" class="fragment" data-fragment-index="3">
+		   
+            <boxTitle class="fragment" data-fragment-index="3">
+              <h3>Acelerações perturbativas</h3>
+            </boxTitle>
+            <p class="fragment" data-fragment-index="3">
+              \[\begin{align}\boldsymbol{a} &= \overbrace{-\dfrac{\mu}{|\boldsymbol{r}|^3}\boldsymbol{r}}^{\boldsymbol{a}_{kep}} + \underbrace{\sum \boldsymbol{a}_{pert}}_{\text{Perturbações}}\end{align}\]
+            </p>
+          </textBox>
+        </rightSide>
 		</section>
 		<section>
 		<h2>Abordagens de coordenação</h2>
 		</br>
+		<leftSide style="width:30%;text-align:center;font-size:18pt">
 		</br>
 		</br>
 		</br>
-		<leftSide style="width:65%;text-align:center;font-size:16pt">
           <ul>
-		  <li class="fragment"><a style = "color:#ff4000">Rastreamento Orbital</a> - Sistema Inercial (ECI).</li>
+		  <li class="fragment" data-fragment-index="1"><a style = "color:#ff4000">Rastreamento Orbital</a> - Sistema Inercial (ECI).</li>
 		  </br>
-		  <li class="fragment"><a style = "color:#ff4000">Líder-Seguidor</a> - Sistema Girante (LVLH).</li>
+		  <li class="fragment" data-fragment-index="2"><a style = "color:#ff4000">Líder-Seguidor</a> - Sistema Girante (LVLH).</li>
 		  </br>
-		  <li class="fragment"><a style = "color:#ff4000">Estrutura Virtual</a> - Sistema Girante (LVLH).</li>
+		  <li class="fragment" data-fragment-index="3"><a style = "color:#ff4000">Estrutura Virtual</a> - Sistema Girante (LVLH).</li>
+		  </br>
+		  <li class="fragment" data-fragment-index="5"><a style = "color:black">Para as abordagens do tipo <a style = "color:#0080FF">Líder-Seguidor</a> e <a style = "color:#0080FF">Estrutura Virtual</a>, deve-se definir um <a style = "color:#ff4000">modelo de dinâmica relativa</a>.</li>
 		  </ul>
         </leftSide>
-        <rightSide style="width:34%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
-          <img
+        <rightSide style="width:70%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
+		
+            <img
               style="margin:-20px;padding:0px;"
-              height="300"
-			  width = "300"
-              src="images/eci_lvlh.svg" class = "fragment">
-			  <p align = "center" style = 'font-size: 20px;color:black' class = "fragment"> Figura 2. Sistemas de referência ECI e LVLH. Fonte: Próprios autores.</p>
+              height="auto"
+			  width = "auto"
+              src="images/ecilvlh.png" class = "fragment" data-fragment-index="4"> 
+			  <p align = "center" style = 'font-size: 20px;color:black' class = "fragment" data-fragment-index="4"> Figura 3. Sistemas de referência ECI e LVLH. Fonte: Próprios autores.</p>
+          
         </rightSide>
+		</section>
+		<section>
+		<h2>Modelo de dinâmica relativa</h2>
+		</br>
+		<leftSide style="width:30%;text-align:center;font-size:18pt">
 		</br>
 		</br>
 		</br>
-		</br>
-		</br>
-		</br>
-		</br>
-		<leftSide style="width:65%;text-align:center;font-size:16pt">
           <ul>
-		  <li class="fragment"><a style = "color:black">Para as abordagens do tipo <a style = "color:#0080FF">Líder-Seguidor</a> e <a style = "color:#0080FF">Estrutura Virtual</a>, deve-se definir um <a style = "color:#ff4000">modelo de dinâmica relativa</a>.</li>
+		  <li class="fragment" data-fragment-index="1"><a style = "color:#ff4000">Rastreamento Orbital</a> - Sistema Inercial (ECI).</li>
+		  </br>
+		  <li class="fragment" data-fragment-index="2"><a style = "color:#ff4000">Líder-Seguidor</a> - Sistema Girante (LVLH).</li>
+		  </br>
+		  <li class="fragment" data-fragment-index="3"><a style = "color:#ff4000">Estrutura Virtual</a> - Sistema Girante (LVLH).</li>
+		  </br>
+		  <li class="fragment" data-fragment-index="5"><a style = "color:black">Para as abordagens do tipo <a style = "color:#0080FF">Líder-Seguidor</a> e <a style = "color:#0080FF">Estrutura Virtual</a>, deve-se definir um <a style = "color:#ff4000">modelo de dinâmica relativa</a>.</li>
 		  </ul>
         </leftSide>
+        <rightSide style="width:70%;"><!-- Fonte: https://en.wikipedia.org/wiki/Satellite_formation_flying#/media/File:EO-1formationflying.png-->
+			<video style = "height:50 px" data-autoplay src="images/LVLHAnimation.mp4"></video>        
+			</rightSide>
 		</section>
 		<section>
 		<h2>Modelagem de forças</h2>
-		<ul>
-		<li class="fragment">O princípio fundamental que rege a dinâmica de satélites artificiais é a <a style = "color:#ff4000"> Lei da Gravitação Universal de Newton</a></li>
-		<p class="fragment"><a style="color:#0080FF">\[\boldsymbol{F}_G = -\dfrac{\mathcal{G}m_1m_2}{|\boldsymbol{r}|^3}\boldsymbol{r}\]</a></p>
-		<li class="fragment">Com esta expressão pode-se obter as equações de movimento de um corpo sob a atração gravitacional de um segundo corpo massivo, como a Terra.</li>
+		<ul style="font-size:18pt">
+		</br>
+		<li class="fragment">O modelo utilizado para a <a style="color:#ff4000">força aerodinâmica</a> segue o exemplo de <a style="color:#0080FF">Ivanov et al.</a> [3].</li>
+		</br>
+		<li class="fragment">Este modelo incorpora efeitos de <a style="color:#0080FF">interação gás-superfície</a>, e modela o perfil de reflexão com base em uma <a style="color:#0080FF">distribuição de Maxwell</a> de partículas especularmente e difusamente refletidas.</li>
+		</br>
+		<li class="fragment">A pressão de radiação solar segue o modelo utilizado por <a style="color:#0080FF">Thoemel et al.</a> [4].</li>
+		</br>
+		<li class="fragment">Neste caso, a <a style="color:#ff4000">pressão de radiação solar</a> também é modelada como apresentando uma porcentagem de reflexão especular e de reflexão difusa.</li>
 		</ul>
 		</section>
+		<section>
+          <textBox style="background:#FFF">
+            <boxTitle>
+              <h3 style="font-size:26pt">Reflexão especular e difusa</h3>
+            </boxTitle>
+            <img
+              style="margin:0px;padding:0px;"
+              height="250"
+              src="images/scattering.png">
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Reflexão especular e difusa de um feixe incidente. Fonte: Próprios autores.</p>
+          </textBox>
+        </section>
         <section>
-		<p> A <a style = "color:#ff4000"> força aerodinâmica </a> é uma força causada pela interação entre o satélite e as partículas da atmosfera incidente. Ela depende da <a style ="color:#0080FF"> área superficial</a> (<a style ="color:#0080FF">S</a>),
+		<h2>Força aerodinâmica</h2>
+		</br>
+		<p style="font-size:18pt"> A <a style = "color:#ff4000"> força aerodinâmica </a> é uma força causada pela interação entre o satélite e as partículas da atmosfera incidente. Ela depende da <a style ="color:#0080FF"> área superficial</a> (<a style ="color:#0080FF">S</a>),
 		<a style ="color:#0080FF"> densidade atmosférica</a> (<a style ="color:#0080FF">$\rho$</a>), a magnitude da <a style ="color:#0080FF">velocidade relativa</a> (<a style ="color:#0080FF">V</a>),
 		coeficientes intrínsecos de <a style ="color:#0080FF"> interação gás-superfície</a> (<a style ="color:#0080FF">$\epsilon$</a> e <a style ="color:#0080FF">$\eta$</a>),
 		assim como a direção normal à superfície e a direção da velocidade relativa à atmosfera incidente (<a style ="color:#0080FF">$\hat{n}$</a> e <a style ="color:#0080FF">$\hat{e}_v$</a>, respectivamente).</p>
@@ -257,9 +338,11 @@
           </textBox>
         </section>
         <section>
-			<p> Já a <a style = "color:#ff4000"> pressão de radiação solar </a> é uma força que surge devido à incidência de feixes de fótons provenientes do Sol. Esta força depende da <a style ="color:#0080FF"> área superficial</a> (<a style ="color:#0080FF">S</a>),
+		<h2>Pressão de radiação solar</h2>
+		</br>
+			<p style="font-size:18pt"> Já a <a style = "color:#ff4000"> pressão de radiação solar </a> é uma força que surge devido à incidência de feixes de fótons provenientes do Sol. Esta força depende da <a style ="color:#0080FF"> área superficial</a> (<a style ="color:#0080FF">S</a>),
 		<a style ="color:#0080FF"> pressão de radiação solar</a> (<a style ="color:#0080FF"> $p_{srp}$</a>), coeficientes de <a style ="color:#0080FF"> reflexão especular</a> (<a style ="color:#0080FF"> $r_s$</a>) e <a style ="color:#0080FF"> reflexão difusa</a> (<a style ="color:#0080FF"> $r_d$</a>),
-		assim como a direção normal à superfície e a direção da velocidade relativa à atmosfera incidente.</p>
+		assim como a direção normal à superfície e a direção do Sol (<a style ="color:#0080FF">$\hat{n}$</a> e <a style ="color:#0080FF">$\hat{e}_s$</a>, respectivamente). Além disso, ela será modulada por uma <a style ="color:#0080FF">função de sombra ($\nu$)</a>.</p>
 		</br>
           <textBox>
             <boxTitle>
@@ -272,18 +355,7 @@
             </p>
           </textBox>
         </section>
-		<section>
-          <textBox style="background:#FFF">
-            <boxTitle>
-              <h3 style="font-size:26pt">Reflexão especular e difusa</h3>
-            </boxTitle>
-            <img
-              style="margin:0px;padding:0px;"
-              height="250"
-              src="images/scattering.png">
-			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Reflexão especular e difusa de um feixe incidente. Fonte: Próprios autores.</p>
-          </textBox>
-        </section>
+		
 		<section>
 		<h2>Dinâmica de Atitude</h2>
 		<ul>
@@ -455,6 +527,7 @@
           progress: true,
           history: true,
           center: true,
+		  slideNumber: true,
           theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
           // default/cube/page/concave/zoom/linear/fade/none
           transition: Reveal.getQueryHash().transition || 'slide',
