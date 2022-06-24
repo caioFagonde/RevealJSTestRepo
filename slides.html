@@ -244,6 +244,9 @@
           </textBox>
         </rightSide>
 		</section>
+		<section style="font-size:18px">
+		<h1>Dinâmica Relativa em Formações em Voo</h1>
+		</section>
 		<section>
 		<h2>Abordagens de coordenação</h2>
 		</br>
@@ -319,7 +322,7 @@
 		  </br>
 		  </br>
 			<ul>
-			<li class="fragment"><a style="color:#ff4000">$\xi_i$</a>, <a style="color:#ff4000">$n_i$</a>: Fatores não-lineares influenciados pela perturbação do $J_2$.</li>
+			<li class="fragment"><a style="color:#ff4000">$\zeta_i$</a>, <a style="color:#ff4000">$n_i$</a>: Fatores não-lineares influenciados pela perturbação do $J_2$.</li>
 			</br>
 			<li class="fragment"><a style="color:#ff4000">$\omega_i$</a>, <a style="color:#ff4000">$\alpha_i$</a>: Velocidades e acelerações angulares associados à <a style="color:#0080FF">rotação do referencial LVLH</a>.</li>
 			</ul>
@@ -387,7 +390,38 @@
             </p>
           </textBox>
         </section>
+		<section>
+		<h2>Acelerações diferenciais</h2>
+		</br>
+			<p style="font-size:18pt"> A dinâmica relativa será influenciada apenas por diferenças nas acelerações que afetam cada satélite. Desta forma, podemos definir as acelerações diferenciais:</p>
+			
+		</br>
+          <textBox>
+            <boxTitle>
+              <h3>Aceleração diferencial</h3>
+            </boxTitle>
+            <p>
+			\begin{equation}
+              \boldsymbol{u}_{env} = \delta{\boldsymbol{a}_{srp}} + \delta{\boldsymbol{a}_{aero}}
+			  \end{equation}
+            </p>
+          </textBox>
+        </section>
+		<section style="font-size:18px">
+		<h1>Dinâmica de Atitude</h1>
+		</section>
+		<section style="font-size:18px">
+		<h2>Referencial de Corpo dos satélites</h2>
+		</br>
 		
+		<img
+              style="margin:0px;padding:0px;"
+              height="500"
+			  align="center"
+			  width = "auto"
+              src="images/SatelliteBodyFrame.png" class = "fragment" data-fragment-index="4">
+			  <p align = "center" style = 'font-size: 20px;color:black' class = "fragment" data-fragment-index="4"> Figura 5.Referencial de Corpo dos satélites. Fonte: Próprios autores.</p>
+		</section>
 		<section>
 		<leftSide style="width:50%;text-align:center;font-size:18pt">
 		
@@ -516,7 +550,102 @@
 			</textbox>
 			</rightSide>
         </section>
-          
+        <section>
+		<h2>Controle Lyapunov</h2>
+		</br>
+		</br>
+		<ul>
+			<li style="font-size:18pt" class="fragment" data-fragment-index="1">Uma <a style ="color:#0080FF">Função de Controle Lyapunov</a> é desenvolvida para controlar a orientação de cada satélite.</li>
+			</br>
+			<li style ="font-size:18pt" class="fragment" data-fragment-index="2">Para isto, considerou-se que a atitude de referência <a style ="color:#0080FF">sempre é estacionária</a> - ou seja, possui velocidade angular nula.</li>
+		</ul>
+        </section>
+		<section>
+		<textBox >
+            <boxTitle>
+              <h3>Função Lyapunov Candidata</h3>
+            </boxTitle>
+			<p style="font-size:18pt">
+			\begin{equation}
+    V(\boldsymbol{q},\boldsymbol{\omega}) = K(\boldsymbol{q} - \boldsymbol{q}_r)^T(\boldsymbol{q} - \boldsymbol{q}_r) + \dfrac{1}{2}\boldsymbol{\omega}^T\boldsymbol{\omega}
+\end{equation}
+			</p>
+			</textbox>
+			</br>
+		<leftSide style="width:40%;text-align:center;font-size:18pt">
+		<textBox style="text-align:center;" class="fragment" data-fragment-index="1">
+            <boxTitle class="fragment" data-fragment-index="1">
+              <h3>Taxa Lyapunov</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="1">
+			\begin{equation}
+    \dot{V}(\boldsymbol{q},\boldsymbol{\omega}) = K\boldsymbol{\omega}^TB(\boldsymbol{q})^T\boldsymbol{q}_e + \boldsymbol{\omega}^T\dot{\boldsymbol{\omega}}
+\end{equation}
+			</p>
+			</textbox>
+			</br>
+			</br>
+			<textBox style="text-align:center;" class="fragment" data-fragment-index="2">
+            <boxTitle class="fragment" data-fragment-index="2">
+              <h3>Garantindo que a função será semi-definida negativa</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="2">
+			\begin{equation}
+    \dot{V}(\boldsymbol{q},\boldsymbol{\omega}) = K\boldsymbol{\omega}^TB(\boldsymbol{q})^T\boldsymbol{q}_e + \boldsymbol{\omega}^T\dot{\boldsymbol{\omega}} = -\dfrac{1}{2}\boldsymbol{\omega}^T[P]\boldsymbol{\omega}
+\end{equation}
+			</p>
+			</textbox>
+			</leftSide>
+			<rightSide style="width:40%;text-align:center;font-size:18pt">
+			<textBox style="text-align:center;" class="fragment" data-fragment-index="3">
+            <boxTitle class="fragment" data-fragment-index="3">
+              <h3>Equação para o torque de controle</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="3">
+			\begin{equation}
+    \boldsymbol{u} = J\left\{-\dfrac{1}{2}[P]\boldsymbol{\omega} - KB(\boldsymbol{q})^T\boldsymbol{q}_e\right\} +[\tilde{\boldsymbol{\omega}}]J\boldsymbol{\omega} - \boldsymbol{L}.
+\end{equation}
+			</p>
+			</textbox>
+			</br>
+			</br>
+			<textBox style="text-align:center;" class="fragment" data-fragment-index="4">
+            <boxTitle class="fragment" data-fragment-index="4">
+              <h3>Erro de quaternion</h3>
+            </boxTitle>
+			<p style="font-size:18pt" class="fragment" data-fragment-index="4">
+			\begin{equation}
+    \boldsymbol{q}_e = \boldsymbol{q} - \boldsymbol{q}_r
+\end{equation}
+			</p>
+			</textbox>
+			</rightSide>
+        </section>  
+		<section style="font-size:18px">
+		<h2>Implementação do algoritmo</h2>
+		</br>
+		<leftSide style="width:40%;text-align:center;font-size:18pt">
+		<ol>
+		<li class="fragment" data-fragment-index="1">Calcula-se o <a style="color=#0080FF">erro de estado atual</a>: $\boldsymbol{e}$</li>
+		</br>
+		<li class="fragment" data-fragment-index="2">Obtém-se o vetor de controle desejado utilizando o <a style="color=#0080FF">LQR</a>.</li>
+		</br>
+		<li class="fragment" data-fragment-index="3">Encontra-se a orientação do <a style="color=#0080FF">vetor normal à superfície $\hat{n}$ para cada satélite</a> que minimiza o erro entre as acelerações diferenciais e o controle comandado.</li>
+		</br>
+		<li class="fragment" data-fragment-index="5">Através do vetor normal, obtém-se o <a style="color=#0080FF">quaternion desejado</a> para a atitude de cada satélite.</li>
+		</ol>
+			</leftSide>
+			<rightSide style="width:50%;text-align:center;font-size:18pt">
+		<img
+              style="margin:0px;padding:0px;"
+              max-height="600"
+			  align="center"
+			  width = "auto"
+              src="images/normalvec.png" class = "fragment" data-fragment-index="4">
+			  <p align = "center" style = 'font-size: 20px;color:black' class = "fragment" data-fragment-index="4"> Figura 5. Parametrização do vetor normal. Fonte: Próprios autores.</p>
+			</rightSide>
+		</section>
+		
       </section>
 	  <!-- ################################################### -->
       <!-- ################################################### -->
@@ -524,13 +653,697 @@
 		<section>
 			<h2>Resultados</h2>
 		</section>	
+		<section>
+		<h2>Parâmetros de simulação</h2>
+		</br>
+		<leftSide style="width:40%;text-align:center;font-size:18pt">
+		</br>
+		</br>
+		<ul>
+		<li class="fragment">O modelo atmosférico escolhido para cálculo da densidade foi o <a style="color=#0080FF">NRLMSISE-00</a>.</li>
+		</br>
+		<li class="fragment">Ele depende de valores de fluxo solar, que foram obtidos diretamente de servidores da <a style="color=#0080FF">NOAA</a>.</li>
+		</ul>
+		</leftSide>
+		<rightSide style="width:40%;text-align:center;font-size:18pt">
+		<table class="fragment">
+    	<thead><tr>
+            <th>Propriedade</th>
+            <th>Valor</th>
+        </tr></thead>
+        <tbody><tr>
+            <td>Massa</td>
+            <td>10 kg</td>
+        </tr>
+        <tr>
+            <td>Área superficial</td>
+            <td>2 m$^2$</td>
+        </tr>
+		<tr>
+            <td>$\epsilon$</td>
+            <td>0.1</td>
+        </tr>
+		<tr>
+            <td>$\eta$</td>
+            <td>0.1</td>
+        </tr>
+		<tr>
+            <td>$r_d$</td>
+            <td>0.007</td>
+        </tr>
+		<tr>
+            <td>$r_s$</td>
+            <td>0.0727</td>
+        </tr>
+		</tbody>
+    </table>
+	<p class="fragment">Tabela 1. Parâmetros físicos dos satélites.</p>
+		</rightSide>
+		</section>
+		<section>
+		<h2>Parâmetros de controle</h2>
+		</br>
+		</br>
+		<table class="fragment">
+    	<thead><tr>
+            <th>Propriedade</th>
+            <th>Valor</th>
+        </tr></thead>
+        <tbody><tr>
+            <td>Q</td>
+            <td>$\mathcal{I}_{6x6}$</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>diag[$3\cdot 10 ^{13}$, $4.5 \cdot 10^{12}$, $3\cdot 10^{13}$]</td>
+        </tr>
+		<tr>
+            <td>K</td>
+            <td>10</td>
+        </tr>
+		<tr>
+            <td>[P]</td>
+            <td>diag[$4$]</td>
+        </tr>
+		</tbody>
+    </table>
+	<p class="fragment">Tabela 2. Parâmetros de controle.</p>
+		</section>
+		<section>
+		<h2>Manobras de reconfiguração</h2>
+		</br>
+		</br>
+		<ul>
+		</br>
+		<li class = "fragment">As trajetórias relativas iniciais e finais foram escolhidas como <a style = "color=#0080FF"> PCOs - Projected Circular Orbits</a>.</li>
+		</br>
+		<li class = "fragment">Este é um tipo de trajetória relativa na qual a <a style = "color=#0080FF"> projeção no plano y-z do movimento relativo do seguidor no referencial LVLH é um círculo</a>.</li>
+		</ul>
+		
+		</section>
+		<section>
+		<video style = "height:50 px" data-autoplay src="images/LVLHAnimation.mp4"></video>        
+			</rightSide>
+		</section>
+		<section>
+		<h2>Simulação 1</h2>
+		</br>
+		</br>
+		<table class="fragment">
+    	<thead><tr>
+            <th>$h_0$</th>
+            <th>350 km</th>
+        </tr></thead>
+        <tbody><tr>
+            <td>$i_0$</td>
+            <td>$51.64^\circ$</td>
+        </tr>
+        <tr>
+            <td>$e_0$</td>
+            <td>0</td>
+        </tr>
+		<tr>
+            <td><a style = "color:#ff4000">$\rho_i$</a></td>
+            <td>100 m</td>
+        </tr>
+		<tr>
+            <td><a style = "color:#0080FF">$\rho_f$</a></td>
+            <td>80 m</td>
+        </tr>
+		</tbody>
+    </table>
+	<p class="fragment">Tabela 3. Parâmetros da primeira simulação.</p>
+		</section>
+		<section>
+
+              <p>Trajetória relativa</p>
+
+			<img
+              style="margin:-20px;padding:0px;"
+              height="500"
+			  width = "auto"
+              src="images/sim1/RelTraj.png" > 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Trajetória relativa.</p>
+
+</section>
+<section>
+              <p>Controle em X</p>
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ControlX.png" > 
+			  <p align = "center" style = 'font-size: 20px;color:black' > Figura 3. Controle comandado e implementado em X.</p>
+</section>
+<section>
+              <p>Controle em Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ControlY.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Controle comandado e implementado em Y.</p>
+
+</section>
+<section>
+
+              <p>Controle em Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ControlZ.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Controle comandado e implementado em Z.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em X</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ErrorX.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em X.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ErrorY.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em Y.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ErrorZ.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em Z.</p>
+
+		</section>
+		<section>
+
+              <p>Projeção Y-Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ZYProjection.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Projeção no plano Y-Z.</p>
+
+		</section>
+		<section>
+
+              <p>Raio projetado instantâneo</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/PCORadius.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Variação do raio projetado instantâneo.</p>
+
+		</section>
+		<section>
+
+              <p>Velocidade angular - Satélite 1</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/Sat1AngVel.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Velocidade angular do satélite 1.</p>
+
+		</section>
+		<section>
+
+              <p>Velocidade angular - Satélite 2</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/Sat2AngVel.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Velocidade angular do satélite 1.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - X</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ControlXContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em X.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ControlYContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em Y.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim1/ControlZContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em Z.</p>
+
+		</section>
+		<section>
+		<h2>Simulação 2</h2>
+		</br>
+		</br>
+		<table class="fragment">
+    	<thead><tr>
+            <th>$h_0$</th>
+            <th>350 km</th>
+        </tr></thead>
+        <tbody><tr>
+            <td>$i_0$</td>
+            <td>$51.64^\circ$</td>
+        </tr>
+        <tr>
+            <td>$e_0$</td>
+            <td>0</td>
+        </tr>
+		<tr>
+            <td><a style = "color:#ff4000">$\rho_i$</a></td>
+            <td>500 m</td>
+        </tr>
+		<tr>
+            <td><a style = "color:#0080FF">$\rho_f$</a></td>
+            <td>300 m</td>
+        </tr>
+		</tbody>
+    </table>
+	<p class="fragment">Tabela 3. Parâmetros da primeira simulação.</p>
+		</section>
+		<section>
+
+              <p>Trajetória relativa</p>
+
+			<img
+              style="margin:-20px;padding:0px;"
+              height="500"
+			  width = "auto"
+              src="images/sim2/RelTraj.png" > 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Trajetória relativa.</p>
+
+</section>
+<section>
+              <p>Controle em X</p>
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ControlX.png" > 
+			  <p align = "center" style = 'font-size: 20px;color:black' > Figura 3. Controle comandado e implementado em X.</p>
+</section>
+<section>
+              <p>Controle em Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ControlY.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Controle comandado e implementado em Y.</p>
+
+</section>
+<section>
+
+              <p>Controle em Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ControlZ.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Controle comandado e implementado em Z.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em X</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ErrorX.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em X.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ErrorY.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em Y.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ErrorZ.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em Z.</p>
+
+		</section>
+		<section>
+
+              <p>Projeção Y-Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ZYProjection.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Projeção no plano Y-Z.</p>
+
+		</section>
+		<section>
+
+              <p>Raio projetado instantâneo</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/PCORadius.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Variação do raio projetado instantâneo.</p>
+
+		</section>
+		<section>
+
+              <p>Velocidade angular - Satélite 1</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/Sat1AngVel.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Velocidade angular do satélite 1.</p>
+
+		</section>
+		<section>
+
+              <p>Velocidade angular - Satélite 2</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/Sat2AngVel.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Velocidade angular do satélite 1.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - X</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ControlXContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em X.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ControlYContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em Y.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim2/ControlZContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em Z.</p>
+
+		</section>
+		<section>
+		<h2>Simulação 3</h2>
+		</br>
+		</br>
+		<table class="fragment">
+    	<thead><tr>
+            <th class="fragment highlight-red" data-fragment-index="3">$h_0$</th>
+            <th class="fragment highlight-red" data-fragment-index="3">700 km</th>
+        </tr></thead>
+        <tbody><tr>
+            <td>$i_0$</td>
+            <td>$51.64^\circ$</td>
+        </tr>
+        <tr>
+            <td>$e_0$</td>
+            <td>0</td>
+        </tr>
+		<tr>
+            <td><a style = "color:#ff4000">$\rho_i$</a></td>
+            <td>60 m</td>
+        </tr>
+		<tr>
+            <td><a style = "color:#0080FF">$\rho_f$</a></td>
+            <td>40 m</td>
+        </tr>
+		</tbody>
+    </table>
+	<p class="fragment">Tabela 5. Parâmetros da primeira simulação.</p>
+		</section>
+		<section>
+
+              <p>Trajetória relativa</p>
+
+			<img
+              style="margin:-20px;padding:0px;"
+              height="500"
+			  width = "auto"
+              src="images/sim3/RelTraj.png" > 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Trajetória relativa.</p>
+
+</section>
+<section>
+              <p>Controle em X</p>
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ControlX.png" > 
+			  <p align = "center" style = 'font-size: 20px;color:black' > Figura 3. Controle comandado e implementado em X.</p>
+</section>
+<section>
+              <p>Controle em Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ControlY.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Controle comandado e implementado em Y.</p>
+
+</section>
+<section>
+
+              <p>Controle em Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ControlZ.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Controle comandado e implementado em Z.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em X</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ErrorX.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em X.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ErrorY.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em Y.</p>
+
+		</section>
+		<section>
+
+              <p>Erro em Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ErrorZ.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Erro em Z.</p>
+
+		</section>
+		<section>
+
+              <p>Projeção Y-Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ZYProjection.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Projeção no plano Y-Z.</p>
+
+		</section>
+		<section>
+
+              <p>Raio projetado instantâneo</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/PCORadius.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Variação do raio projetado instantâneo.</p>
+
+		</section>
+		<section>
+
+              <p>Velocidade angular - Satélite 1</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/Sat1AngVel.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Velocidade angular do satélite 1.</p>
+
+		</section>
+		<section>
+
+              <p>Velocidade angular - Satélite 2</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/Sat2AngVel.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Velocidade angular do satélite 1.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - X</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ControlXContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em X.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - Y</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ControlYContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em Y.</p>
+
+		</section>
+		<section>
+
+              <p>Contribuições das forças ambientais - Z</p>
+
+<img
+              style="margin:-20px;padding:0px;"
+              height="auto"
+			  width = "auto"
+              src="images/sim3/ControlZContributions.png"> 
+			  <p align = "center" style = 'font-size: 20px;color:black'> Figura 3. Acelerações diferenciais ambientais em Z.</p>
+
+		</section>
       </section>
+	  
+	  
 	  <!-- ################################################### -->
       <!-- ################################################### -->
       <section>
 		<section>
 			<h2>Conclusões</h2>
 		</section>	
+		<section>
+		<ul>
+		<li class = "fragment">Este trabalho analisou o uso de <a style="color:#ff4000">forças ambientais</a> como <a style="color:#0080FF">método de controle de formações</a>.</li>
+		</br>
+		<li class = "fragment">Um <a style="color:#ff4000">sistema de controle Lyapunov</a> para atitude foi desenvolvido, de forma a seguir uma trajetória de atitude de referência.</li>
+		</br>
+		<li class = "fragment"><a style="color:#0080FF">Manobras de reconfiguração</a> da formação em voo foram simuladas, transferindo o seguidor entre trajetórias PCOs.</li>
+		</br>
+		<li class = "fragment">Pesquisas futuras podem aprimorar esta análise implementando um <a style="color:#ff4000">sistema de controle não-linear</a> para o movimento translacional e investigando a aplicação desta técnica em <a style="color:#0080FF">órbitas excêntricas</a>.</li>
+		</ul>
+		</section>
       </section>
 	  <!-- ################################################### -->
       <!-- ################################################### -->
